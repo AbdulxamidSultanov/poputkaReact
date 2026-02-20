@@ -74,7 +74,6 @@ export function useSearchForm() {
         travelPassNumRef,
 
         uiFilters,
-        currentData: actualFiltersRef.current,
 
         handleTravelFromChange,
         handleTravelToChange,

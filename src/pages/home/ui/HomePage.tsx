@@ -1,7 +1,6 @@
 import Header from "../../../widgets/header/ui/Header.tsx";
 import Hitchhikers from "../../../widgets/hitchhikers/ui/Hitchhikers.tsx";
 import styles from "./HomePage.module.scss"
-import {useState} from "react";
 import SearchForm from "../../../shared/ui/Inputs/SearchForm/SearchForm.tsx";
 
 const HomePage = () => {
