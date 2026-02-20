@@ -1,0 +1,95 @@
+@use "../../../../app/styles/mixins" as *;
+@use "../../../../app/styles/variables" as var;
+
+.formContainer {
+  @include flex(row, center, center, 1rem);
+  max-width: 1200px;
+  width: 100%;
+
+  .formElement {
+    @include flex(row, center, center);
+    @include clampProp(max-width, 400px, 300px);
+
+    position: relative;
+    width: 100%;
+    padding: 1rem 2rem;
+    border-radius: 20px;
+    background-color: white;
+    border: 1px solid #e0e0e0;
+
+    select, input[type="date"], input[type="number"] {
+      width: 100%;
+      height: 40px;
+      border: none;
+      outline: none;
+      background: transparent;
+      font-size: 18px;
+      color: #333;
+    }
+
+
+
+      input[type="number"] {
+        &::-webkit-outer-spin-button,
+        &::-webkit-inner-spin-button {
+          -webkit-appearance: none;
+          margin: 0;
+        }
+
+        -moz-appearance: textfield;
+        appearance: textfield;
+      }
+
+    label {
+      position: absolute;
+      left: 2rem;
+      top: 50%;
+      transform: translateY(-50%);
+      background: white;
+      padding: 0 4px;
+      color: #666;
+      font-size: 14px;
+      transition: all 0.3s ease;
+      pointer-events: none;
+
+    }
+
+    &:focus-within label,
+    &.filled label {
+      top: 12px;
+      transform: translateY(0);
+      font-size: 12px;
+      color: #1976d2;
+      font-weight: 500;
+
+    }
+  }
+
+  .passNum {
+    .btnGroup {
+      @include flex(row, center, center, 0.4rem);
+      button {
+        background-color: transparent;
+        color: var.$blue;
+      }
+    }
+
+  }
+
+  .submitBtn {
+    button {
+      padding: 1rem 2rem;
+      border-radius: 20px;
+      background-color: var.$main-price;
+      color: white;
+      border: none;
+      cursor: pointer;
+      font-size: 16px;
+      transition: background-color 0.3s ease;
+    }
+  }
+  @media (max-width: 420px) {
+    @include flex(column, center, center, 1rem);
+  }
+}
+

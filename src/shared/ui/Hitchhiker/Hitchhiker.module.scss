@@ -1,0 +1,78 @@
+@use "../../../app/styles/mixins" as *;
+@use "../../../app/styles/variables" as var;
+
+
+.rout {
+  @include flex(row, space-between, center);
+
+  .city {
+    @include heading700(26px, 100%);
+    text-transform: capitalize;
+  }
+
+  .lines {
+    @include flex(row, space-between, stretch, 0.75rem);
+
+    .line {
+      @include size(20px, 4px);
+      background-color: #ccc;
+    }
+  }
+}
+
+.about {
+  @include flex(row, space-between, flex-end);
+
+  .description {
+    @include flex(column, space-between, flex-start, 0.5rem);
+
+    .text {
+      display: flex;
+      gap: 0.75rem;
+
+      svg {
+        stroke: var.$blue;
+      }
+    }
+
+    .require {
+      p {
+
+      }
+    }
+  }
+}
+
+.actions {
+  @include flex(row, space-between, center);
+  padding-top: 16px;
+  border-top: 1px solid #ccc;
+
+  .driver {
+    @include flex(row, center, center, 2rem);
+
+    .profile {
+      @include flex(row, center, center, 0.5rem);
+    }
+
+    .driverRating {
+      @include flex(row, center, center, 0.5rem);
+
+      svg {
+        fill: #ffc800;
+        stroke: #ffc800;
+      }
+    }
+  }
+
+  .aboutBtn {
+    .btn {
+      @include paragraph500(16px, 100%, 1.5px);
+      color: #fff;
+
+      padding: 10px 16px;
+      border-radius: 1rem;
+      background-color: var.$blue;
+    }
+  }
+}

@@ -1,0 +1,30 @@
+@use "../../../app/styles/mixins" as *;
+@use "../../../app/styles/variables" as var;
+
+.container {
+  @include flex(column, center, center);
+  background-color: white;
+  border-top-right-radius: 45px;
+  border-top-left-radius: 45px;
+
+  .hitchhikers {
+    @include flex(row, center, center);
+
+    padding-top: 1rem;
+    row-gap: 2rem;
+    flex-shrink: 3;
+    flex-wrap: wrap;
+
+
+    .hitchhiker {
+      @include container(33rem, 3rem);
+      @include flex(column, center, stretch, 2rem);
+
+      padding-top: 2rem;
+      padding-bottom: 2rem;
+
+      border-radius: 25px;
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    }
+  }
+}

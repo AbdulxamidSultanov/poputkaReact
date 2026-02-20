@@ -1,0 +1,85 @@
+@use "../../../app/styles/mixins" as *;
+@use "../../../app/styles/variables" as var;
+//  calc(20px + (36 - 20) * ((100vw - 360px) / (1440 - 360))) = ideal clamp size
+
+.homePage {
+  background: var.$main-bg;
+
+  .hero {
+    @include flex(column, center, center, clamp(2rem, 5vw, 5rem));
+    padding: clamp(2rem, calc(20px + (36 - 20) * ((100vw - 360px) / (1440 - 360))), 4rem) 1rem;
+
+    .description {
+      max-width: 1200px;
+      width: 100%;
+      background-image: url("/images/traceLine.svg?inline");
+      background-position: bottom;
+      background-size: clamp(340px, 100%, 1200px);
+      background-repeat: no-repeat;
+
+      .mainContent {
+        @include flex(row, center, center);
+        @include heading700(48px);
+        @include clampProp(font-size, 16px, 48px);
+        color: white;
+
+        .duckImage {
+          @include clampProp(width, 120px, 260px);
+          @include clampProp(height, 80px, 200px);
+        }
+      }
+    }
+
+    .form {
+      .date-picker-wrapper {
+        width: 100%;
+
+        .react-datepicker {
+          border: 1px solid white;
+          border-radius: 8px;
+          background: #ccc;
+          color: white;
+          font-family: inherit;
+        }
+
+        .react-datepicker__header {
+          background: #ccc;
+          color: white;
+        }
+
+        .react-datepicker__day {
+          &:hover {
+            background: #ccc;
+            color: white;
+          }
+        }
+
+        .react-datepicker__input-container input {
+          width: 100%;
+          padding: 0.75rem;
+          border: 1px solid white;
+          border-radius: 8px;
+          background: #cccccc;
+          color: black;
+          transition: border 0.2s;
+
+          &:focus {
+            border-color: var(--primary);
+          }
+        }
+      }
+    }
+
+  }
+}
+
+
+@keyframes moveLine {
+  from {
+    background-position: 0 100%;
+  }
+  to {
+    background-position: -1200px 100%;
+  }
+}
+
